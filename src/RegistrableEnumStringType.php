@@ -4,7 +4,7 @@ namespace Mediagone\Doctrine\Types\Enums;
 
 use Doctrine\DBAL\Types\Type;
 use LogicException;
-use Mediagone\Types\Enums\EnumInt;
+use Mediagone\Types\Enums\EnumString;
 use ReflectionClass;
 use function class_exists;
 use function is_a;
@@ -42,8 +42,8 @@ final class RegistrableEnumStringType extends EnumStringType
             return;
         }
         
-        if (! is_a($classFqcn, EnumInt::class, true)) {
-            throw new LogicException("The enum class ($classFqcn) must extends EnumInt");
+        if (! is_a($classFqcn, EnumString::class, true)) {
+            throw new LogicException("The enum class ($classFqcn) must extends EnumString");
         }
         
         Type::addType($enumTypeName, self::class);
