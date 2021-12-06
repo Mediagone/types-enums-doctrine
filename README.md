@@ -16,6 +16,35 @@ $ composer require mediagone/types-enums-doctrine
 ```
 
 
+## Configuration
+This package provides a generic Doctrine type to remove the need to create a custom types for each enum class manually. Then, you only need to register your enums in the `DoctrineEnumTypesLoader` class, and custom types will be automatically created and registered for you.
+
+### With Symfony
+If you're using this package in a Symfony project, register your enum classes in your app's kernel class:
+```php
+use App\MyCustomEnum;
+use App\MyOtherEnum;
+use Symfony\Component\HttpKernel\Kernel as BaseKernel;
+
+class Kernel extends BaseKernel
+{
+    use MicroKernelTrait;
+
+    public function boot(): void
+    {
+        parent::boot();
+
+        (new DoctrineEnumTypesLoader())->registerEnumTypes([
+            MyCustomEnum::class,
+            MyOtherEnum::class,
+            // any other enum classes here
+        ]);
+    }
+
+    ...
+}
+```
+
 
 ## License
 
