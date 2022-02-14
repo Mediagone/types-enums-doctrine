@@ -23,7 +23,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "ext-json": "*",
-        "doctrine/dbal": "^2.7",
+        "doctrine/dbal": "^2.7|^3.0",
         "mediagone/types-enums": "^0.1"
     },
     "require-dev": {
